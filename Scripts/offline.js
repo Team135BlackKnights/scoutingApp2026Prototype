@@ -2,23 +2,25 @@ const CACHE_NAME = 'offline-v1';
 const ASSETS = [
   '/',
   '/index.html',
-  '/classes.css',
-  '/colors.css',
-  '/ids.css',
-  '/mobileFriendly.css',
-  '/style.css',
-  '/allainceButtonLogic.js',
-  '/buttonMap.js',
-  '/data.js',
-  '/offline.js',
-  '/saveQr.js',
-  '/scoreButton.js',
-  '/App_Logo.png',
-  '/Background_Wode.png',
-  '/Blue_Alliance_BG.png',
-  '/Red_Alliance_BG.png',
-  '/Blue_Alliance_Button.png',
-  '/Red_Alliance_Button.png',
+  '/Styles/classes.css',
+  '/Styles/colors.css',
+  '/Styles/ids.css',
+  '/Styles/mobileFriendly.css',
+  '/Styles/style.css',
+  '/Styles/rebuilt.css',
+  '/Scripts/allianceButtonLogic.js',
+  '/Scripts/buttonRoute.js',
+  '/Scripts/data.js',
+  '/Scripts/offline.js',
+  '/Scripts/saveQr.js',
+  '/Scripts/scoreButton.js',
+  '/Scripts/rebuiltGameLogic.js',
+  '/Images/App_Logo.png',
+  '/Images/Background_Wide.png',
+  '/Images/Blue_Alliance_BG.png',
+  '/Images/Red_Alliance_BG.png',
+  '/Images/Blue_Alliance_Button.png',
+  '/Images/Red_Alliance_Button.png',
 ];
 
 // Install and cache assets
@@ -34,17 +36,9 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
       .then(response => response || fetch(event.request))
+      .catch(() => {
+        // Optionally return a fallback page or asset
+        return caches.match('/index.html');
+      })
   );
 });
-
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/offline.js')
-    .then(registration => {
-      console.log('Service Worker registered with scope:', registration.scope);
-    })
-    .catch(error => {
-      console.error('Service Worker registration failed:', error);
-    });
-}
-
- 
