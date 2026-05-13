@@ -1,3 +1,9 @@
+/*
+ This is the part that would make the website work offline by cacheing all the assets of the website to the users broweser. 
+  The service worker will intercept all network requests and serve the cached assets when the user is offline, ensuring that the website remains functional even without an internet connection.
+  you will need to complete this on your end by /*/
+
+
 const CACHE_NAME = 'offline-v1';
 const ASSETS = [
   '/',
@@ -29,7 +35,7 @@ self.addEventListener('install', event => {
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(ASSETS))
   );
-});
+  });
 
 // Serve cached content when offline
 self.addEventListener('fetch', event => {
@@ -42,3 +48,15 @@ self.addEventListener('fetch', event => {
       })
   );
 });
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/Scripts/offline.js')
+          .then(registration => {
+              console.log('Service Worker registered with scope:', registration.scope);
+          })
+          .catch(error => {
+              console.error('Service Worker registration failed:', error);
+          });
+  });
+}

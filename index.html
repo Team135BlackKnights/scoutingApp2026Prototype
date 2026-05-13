@@ -7,13 +7,11 @@
 		<link href = "https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
 
 		<link rel  = "stylesheet" href= "./Styles/colors.css">
-
 		<link rel  = "stylesheet" href= "./Styles/classes.css">
 		<link rel  = "stylesheet" href= "./Styles/ids.css">
 		<link rel  = "stylesheet" href= "./Styles/style.css">
-		<link rel = "stylesheet" href = ".styles/colors.css">
-		<link rel = "stylesheet" href = ".styles/mobileFriendly.css">
-		<link rel = "stylesheet" href = "Styles/rebuilt.css">
+		<link rel  = "stylesheet" href= "./Styles/mobileFriendly.css">
+		<link rel  = "stylesheet" href= "./Styles/rebuilt.css">
 
 		<title>[TEAM NUMBER] Scouting</title>
 	</head>
@@ -59,7 +57,9 @@
 		<div id="continueScreen" class="screen">
 			<div class="image-row">
 				<img src="./Images/rebuilt.png" width = 1300px height = 1000px position = "absolute">
-				<div id="gameScoreButtons"></div>
+				<div id="gameScoreButtons" style="width: 100px; height: 100px; background-color: lightgray; display: flex; align-items: center; justify-content: center; visibility: visible;">
+					Placeholder Content
+				</div>
 			</div>
 		</div>
 		
@@ -143,10 +143,10 @@
 		<script src = "./Scripts/Pwa.js"></script>
 		<script src = "./Scripts/server.js"></script>
 		<script src = "./Scripts/saveQr.js"></script>
-		<script src = "Scripts/offline.js"></script>
-		<script src = "Scripts/rebuiltGameLogic.js"></script>
-
-
+		<script src = "./Scripts/server.js"></script>
+		<script src = "./Scripts/saveQr.js"></script>
+		<script src = "./Scripts/offline.js"></script>
+		<script src = "./Scripts/rebuiltGameLogic.js" defer></script>
 		<script>
 			if ('serviceWorker' in navigator) {
 			  window.addEventListener('load', () => {
