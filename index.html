@@ -13,6 +13,7 @@
 		<link rel  = "stylesheet" href= "./Styles/style.css">
 		<link rel = "stylesheet" href = ".styles/colors.css">
 		<link rel = "stylesheet" href = ".styles/mobileFriendly.css">
+		<link rel = "stylesheet" href = "Styles/rebuilt.css">
 
 		<title>[TEAM NUMBER] Scouting</title>
 	</head>
@@ -54,12 +55,14 @@
 				<button class="back-btn" color="yellow">Back</button>
 			</div>
 		</div>
+		
 		<div id="continueScreen" class="screen">
 			<div class="image-row">
-				<button class = "back-btn button" color = "yellow">Back</button>
-				<h3>The robot map will be here.</h3>
+				<img src="./Images/rebuilt.png" width = 1300px height = 1000px position = "absolute">
+				<div id="gameScoreButtons"></div>
 			</div>
 		</div>
+		
 		<div id="sub" class="screen">
 			<div class="Form" id="subjective-form">
 				<h2>Subjective Scouting</h2>
@@ -134,12 +137,14 @@
 			</div>
 		</div>
 		<script src = "./Scripts/allianceButtonLogic.js"></script>
-		<script src = "./Scripts/buttonMap.js"></script>
+		<script src = "./Scripts/buttonRoute.js"></script>
 		<script src = "./Scripts/scoreButton.js"></script>
 		<script src = "./Scripts/data.js"></script>
 		<script src = "./Scripts/Pwa.js"></script>
 		<script src = "./Scripts/server.js"></script>
 		<script src = "./Scripts/saveQr.js"></script>
+		<script src = "Scripts/offline.js"></script>
+		<script src = "Scripts/rebuiltGameLogic.js"></script>
 
 
 		<script>
