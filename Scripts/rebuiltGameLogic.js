@@ -55,11 +55,15 @@ function initButtons() // function that initializes all the buttons
 }
 
 
-if (buttonContainer) {
-    makeButton(`Hub: ${hubScore}`);
-} else {
-    console.error("Cannot create buttons because 'buttonContainer' is not available.");
+if (buttonContainer) {// checks if the button container is available before trying to create buttons
+    makeButton(`Hub: ${hubScore}`);// makes a button with the game object HUB to score in that will keep track how many times pressed to show current score 
+} else {// if the button container is not available it will log an error to the console
+    console.error("Cannot create buttons because 'buttonContainer' is not available.");// logs an error to the console if the button container it is not available
 }
+
+
+makeButton("Hub Score: ");// makes a button 
+
 
 // DO NOT REMOVE THIS LINE
 initButtons() // calls the init buttons function to initialize all the buttons 

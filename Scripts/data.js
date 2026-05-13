@@ -58,14 +58,14 @@ document.getElementById('submitSubjective').addEventListener('click', () => {
 	}
 
 	// Score buttons
-	const scores = Array.from(document.querySelectorAll('#score-buttons button'))
-		.map(button => ({
-			name: button.dataset.originalText,
-			count: parseInt(button.dataset.count)
+	const scores = Array.from(document.querySelectorAll('#score-buttons button'))// sekects all buttons within the score-buttons container and creates an array from the nodelist
+		.map(button => ({// maps each button to an object with the original text and count of the button
+			name: button.dataset.originalText,// gets the original text of the button from the data atribute 
+			count: parseInt(button.dataset.count)// gets the count of the button from the data atribute and parses it to an integer
 		}))
-		.reduce((acc, { name, count }) => {
-			acc[name] = count;
-			return acc;
+		.reduce((acc, { name, count }) => {// reduces the array of button objects to an object with the button names as keys and counts as values
+			acc[name] = count;// sets the key of the button name to the count of the button in the accumulator object 
+			return acc;// returns the accumulator object for the next iteration of the reduce function 
 		}, {}
 		);
 
@@ -107,19 +107,19 @@ document.getElementById('submitSubjective').addEventListener('click', () => {
 	console.log("Updating QRCodes!")// log to console for testing
 
 	// Clear previous QR code
-	const objectiveContainer = document.getElementById('objQRCode');
-	const subjectiveContainer = document.getElementById('subQRCode');
-	objectiveContainer.innerHTML = '';
-	subjectiveContainer.innerHTML = '';
+	const objectiveContainer = document.getElementById('objQRCode');// get the objective qr code container
+	const subjectiveContainer = document.getElementById('subQRCode');// get the subjective qr code container 
+	objectiveContainer.innerHTML = '';// clear the objective qr code container 
+	subjectiveContainer.innerHTML = '';// clear the subjective qr code container 
 
 	// Subjective QR Code
-	new QRCode(subjectiveContainer, {
-		text: JSON.stringify(subjectiveData),
-		width: 208,
-		height: 228,
-		colorDark: "#000000",
-		colorLight: "#ffffff",
-		correctLevel: QRCode.CorrectLevel.L
+	new QRCode(subjectiveContainer, {// creates a new qr code in the subjective qr code container with the data from subjectiveData
+		text: JSON.stringify(subjectiveData),// converts the subjectiveData object to a JSON string to be stored in the qr code 
+		width: 208,// sets the width of thr qr code to 208 pixels
+		height: 228,// sets the height of the qr code to 228 pixels
+		colorDark: "#000000",// sets the dark color of the qr code to black
+		colorLight: "#ffffff",// sets the light color of the qr code to white
+		correctLevel: QRCode.CorrectLevel.L// sets the error correction level of the qr code to Low, wich can store more data but is less resistant to damage than higher error correction levels 
 	});
 
 	// Objective QR Code
