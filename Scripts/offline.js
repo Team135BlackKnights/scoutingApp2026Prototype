@@ -17,7 +17,7 @@ const ASSETS = [
   '/Background_Wode.png',
   '/Blue_Alliance_BG.png',
   '/Red_Alliance_BG.png',
-  '/Blue)allaince_Button.png',
+  '/Blue_Alliance_Button.png',
   '/Red_Alliance_Button.png',
 ];
 
@@ -36,4 +36,15 @@ self.addEventListener('fetch', event => {
       .then(response => response || fetch(event.request))
   );
 });
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/offline.js')
+    .then(registration => {
+      console.log('Service Worker registered with scope:', registration.scope);
+    })
+    .catch(error => {
+      console.error('Service Worker registration failed:', error);
+    });
+}
+
  
